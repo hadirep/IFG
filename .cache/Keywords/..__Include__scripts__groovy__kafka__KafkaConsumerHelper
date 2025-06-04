@@ -1,0 +1,10 @@
+{
+  "keywordFileContentHash": "DDE4482023D4558C07BC9F77543FF9A0",
+  "keywordClasses": [
+    {
+      "name": "kafka.KafkaConsumerHelper",
+      "keywordMethods": []
+    }
+  ],
+  "javadocParsed": true
+}

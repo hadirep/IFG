@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "91BAC7964BBCDB05F5454129C9EAF50C",
+  "keywordClasses": [
+    {
+      "name": "kafka.KafkaConsumerHelper",
+      "keywordMethods": [
+        {
+          "name": "consumeMessage",
+          "parameters": [
+            {
+              "name": "topicName",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}
