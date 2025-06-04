@@ -1,14 +1,10 @@
 # IFG : Katalon + Kafka + REST API Test Project
 
----
-
 ## Teknologi yang Digunakan
 - [Katalon Studio](https://www.katalon.com/)
 - Apache Kafka dan Zookeeper (via Docker)  
 - [Python](https://www.python.org/downloads/) (untuk mengirim pesan ke Kafka)  
 - Public REST API: [dummyjson.com](https://dummyjson.com/)
-
----
 
 ## Cara Menjalankan
 ### 1. **Clone repository ini**
@@ -34,18 +30,16 @@ docker-compose down
 python send_kafka_message.py
 ```
 ### 4. **Jalankan Test Case di Katalon Studio**
-#### Kafka_Consumer_Test
-A. Membaca pesan dari Kafka topic
-B. Verifikasi bahwa pesan yang diterima mengandung data tertentu (misalnya: `"Test Product"`)
+#### A. Kafka_Consumer_Test
+- Membaca pesan dari Kafka topic
+- Verifikasi bahwa pesan yang diterima mengandung data tertentu (misalnya: `"Test Product"`)
 
-#### Consumer_Producer_Test
-A. Melakukan pengujian REST API ke endpoint public dummyjson
-B. Mencakup:
+#### B. Consumer_Producer_Test
+- Melakukan pengujian REST API ke endpoint public dummyjson
+- Mencakup:
   - GET semua produk dan produk berdasarkan ID
   - POST produk baru (simulasi sebagai producer)
   - PUT untuk update produk
-
----
 
 ## Struktur Folder Penting
 - `Test Cases/Kafka/Kafka_Consumer_Test.tc`  
@@ -56,12 +50,8 @@ B. Mencakup:
 - `send_kafka_message.py`  
 - `docker-compose.yml`
 
----
-
 ## Dependensi Kafka untuk Katalon
 - Pastikan kamu menambahkan file kafka-clients-<versi>.jar ke Drivers/ di Katalon. Jika belum ada, bisa diunduh dari [Maven Central Repository - kafka-clients](https://central.sonatype.com/artifact/org.apache.kafka/kafka-clients/versions)
-
----
 
 ## Hasil yang di harapkan
 - Data berhasil dikirim dan dibaca melalui REST API
