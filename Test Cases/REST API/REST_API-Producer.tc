@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Consumer_Producer_Test</name>
+   <name>REST_API-Producer</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>a42ba160-aa69-4412-bee9-b6dd9b481928</testCaseGuid>
+   <testCaseGuid>92bdb846-7e3a-4ed1-925c-949dfdc6adf5</testCaseGuid>
 </TestCaseEntity>

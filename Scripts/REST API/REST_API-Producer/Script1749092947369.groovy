@@ -16,7 +16,21 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import kafka.KafkaConsumerHelper
+import groovy.json.JsonOutput
+import kafka.KafkaProducerHelper
 
-def messages = KafkaConsumerHelper.consumeMessages("dummyjson-topic")
-assert messages.any { it.contains("Test Product") }
+// == PRODUCER ==
+// == POST (mengirim) ==
+def addProduct = WS.sendRequest(findTestObject('PUBLIC API/POST_addProduct'))
+WS.verifyResponseStatusCode(addProduct, 201)
+WS.verifyElementPropertyValue(addProduct, 'title', 'Product Hadi')
+
+assert addProduct.getStatusCode() == 201
+def responseText = addProduct.getResponseText()
+println("Data dari API: \n $responseText")
+KafkaProducerHelper.sendMessage("hadi-topic", responseText)
+
+// === PUT (update) ===
+def updateProduct = WS.sendRequest(findTestObject('PUBLIC API/PUT_UpdateProduct'))
+WS.verifyResponseStatusCode(updateProduct, 200)
+WS.verifyElementPropertyValue(updateProduct, 'title', 'Update Produk Hadi')

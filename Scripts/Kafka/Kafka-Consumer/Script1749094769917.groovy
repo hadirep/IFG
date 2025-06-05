@@ -16,23 +16,8 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import kafka.KafkaConsumerHelper
 
-// === Consumer ===
+def messages = KafkaConsumerHelper.consumeMessages("hadi-topic")
+assert messages.any { it.contains("Product Hadi") }
 
-def getAllProducts = WS.sendRequest(findTestObject('PUBLIC API/GET_AllProducts'))
-WS.verifyResponseStatusCode(getAllProducts, 200)
-WS.verifyElementPropertyValue(getAllProducts, 'products[0].title', 'Essence Mascara Lash Princess')
-
-def getProductByID = WS.sendRequest(findTestObject('PUBLIC API/GET_Product_ByID'))
-WS.verifyResponseStatusCode(getProductByID, 200)
-WS.verifyElementPropertyValue(getProductByID, 'title', 'Essence Mascara Lash Princess')
-
-// === Producer ===
-def addProduct = WS.sendRequest(findTestObject('PUBLIC API/POST_AddProduct'))
-WS.verifyResponseStatusCode(addProduct, 201)
-WS.verifyElementPropertyValue(addProduct, 'title', 'Hadi')
-
-// === PUT (update) ===
-def updateProduct = WS.sendRequest(findTestObject('PUBLIC API/PUT_UpdateProduct'))
-WS.verifyResponseStatusCode(updateProduct, 200)
-WS.verifyElementPropertyValue(updateProduct, 'title', 'Update Produk Hadi')
