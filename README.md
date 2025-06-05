@@ -32,6 +32,7 @@ docker-compose down
 - Mencakup:
   - POST (https://dummyjson.com/products/add) produk baru (simulasi sebagai producer)
   - PUT (https://dummyjson.com/products/1) untuk update produk
+  - DELETE (https://dummyjson.com/products/1) untuk hapus produk
 #### B. REST_API-Consumer
 - Menerima pesan dari REST API Public dari [dummyJson](https://dummyjson.com/)
 - Mencakup:
