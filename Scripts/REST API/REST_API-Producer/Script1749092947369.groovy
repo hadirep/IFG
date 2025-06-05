@@ -34,3 +34,8 @@ KafkaProducerHelper.sendMessage("hadi-topic", responseText)
 def updateProduct = WS.sendRequest(findTestObject('PUBLIC API/PUT_UpdateProduct'))
 WS.verifyResponseStatusCode(updateProduct, 200)
 WS.verifyElementPropertyValue(updateProduct, 'title', 'Update Produk Hadi')
+
+// === DELETE (delete) ===
+def deleteProduct = WS.sendRequest(findTestObject('PUBLIC API/DELETE_DeleteProduct'))
+WS.verifyResponseStatusCode(deleteProduct, 200)
+WS.verifyElementPropertyValue(deleteProduct, 'isDeleted', true)
