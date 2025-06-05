@@ -1,7 +1,7 @@
 # IFG : Katalon + Kafka + REST API Test Project
 
 ## Teknologi yang Digunakan
-- [Katalon Studio](https://www.katalon.com/)
+- [Katalon Studio v9.5.0](https://www.katalon.com/)
 - Apache Kafka dan Zookeeper (via Docker)  
 - [Python](https://www.python.org/downloads/) (untuk mengirim pesan ke Kafka)  
 - Public REST API: [dummyjson.com](https://dummyjson.com/)
@@ -18,28 +18,31 @@ git clone https://github.com/hadirep/ifg.git
 ```bash
 docker-compose up -d
 ```
+- Cek Apakah Kafka berjalan:
+```bash
+docker ps
+```
 - Untuk menghentikan service, gunakan:
 ```bash
 docker-compose down
 ```
 ### 3. **Mengirim Pesan ke Kafka (Producer)**
-- Digunakan script Python bernama `send_kafka_message.py`
+- Digunakan script Python bernama `send_kafka_message.py` (lihat isi file pada repo ini)
 - Script ini akan mengirimkan pesan JSON ke Kafka topic bernama `dummyjson-topic`
 - Jalankan script menggunakan:
 ```bash
 python send_kafka_message.py
 ```
 ### 4. **Jalankan Test Case di Katalon Studio**
-#### A. Kafka_Consumer_Test
-- Membaca pesan dari Kafka topic
-- Verifikasi bahwa pesan yang diterima mengandung data tertentu (misalnya: `"Test Product"`)
-
-#### B. Consumer_Producer_Test
+#### A. Consumer_Producer_Test
 - Melakukan pengujian REST API ke endpoint public dummyjson
 - Mencakup:
   - GET semua produk dan produk berdasarkan ID
   - POST produk baru (simulasi sebagai producer)
   - PUT untuk update produk
+#### B. Kafka_Consumer_Test
+- Membaca pesan dari Kafka topic
+- Verifikasi bahwa pesan yang diterima mengandung data tertentu (misalnya: `"Test Product"`)
 
 ## Struktur Folder Penting
 - `Test Cases/Kafka/Kafka_Consumer_Test.tc`  
