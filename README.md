@@ -82,4 +82,4 @@ exit
 
 ## Author
 - Nama: Hadi Rahmah Esa Putra
-- Email: Hadiesarahma@gmail.com
+- Email: hadiesarahma@gmail.com
