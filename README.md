@@ -41,7 +41,7 @@ docker-compose down
 - Membaca pesan dari Kafka topic
 - Verifikasi bahwa pesan yang diterima mengandung data tertentu (misalnya: `"Product Hadi"`)
   
-### 4. **Pastikan kafka topic menerima pesan dari Katalon**
+### 4. **Pastikan topic telah di buat dari Katalon dan menerima pesan dari Katalon**
 - Masuk ke Container Kafka
 ```bash
 winpty docker exec -it kafka bash
